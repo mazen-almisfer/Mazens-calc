@@ -49,19 +49,25 @@ function selectOption(containerId, value, element) {
 // Function to calculate and display the results
 function calculateResults() {
     // 1st Result Calculation
-    const result1 = 2 * xValue + 11;
+    var result1 = 2 * xValue + 11;
     
     // 2nd Result Calculation
-    const result2 = (2 * zValue + yValue) - 5;
+    var result2 = (2 * zValue + yValue) - 5;
     
     // 3rd Result Calculation
-    const result3 = Math.abs((yValue + zValue) - xValue);
+    var result3 = Math.abs((yValue + zValue) - xValue);
 
-    // Update the results in the HTML
-    document.getElementById("result1").textContent = result1;
-    document.getElementById("result2").textContent = result2;
-    document.getElementById("result3").textContent = result3;
-}
+// Format each result independently
+const formatted1 = result1 < 10 ? ('0' + result1).slice(-2) : result1;
+const formatted2 = result2 < 10 ? ('0' + result2).slice(-2) : result2;
+const formatted3 = result3 < 10 ? ('0' + result3).slice(-2) : result3;
+
+// Update the results in the HTML
+document.getElementById("result1").textContent = formatted1;
+document.getElementById("result2").textContent = formatted2;
+document.getElementById("result3").textContent = formatted3;
+
+    }
 
 // Initialize options when the document is loaded
 document.addEventListener("DOMContentLoaded", () => {
@@ -69,3 +75,4 @@ document.addEventListener("DOMContentLoaded", () => {
     createOptions("y-options");
     createOptions("z-options");
 });
+
