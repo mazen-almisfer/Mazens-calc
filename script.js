@@ -75,4 +75,3 @@ document.addEventListener("DOMContentLoaded", () => {
     createOptions("y-options");
     createOptions("z-options");
 });
-
